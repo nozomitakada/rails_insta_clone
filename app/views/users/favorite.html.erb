@@ -1,0 +1,93 @@
+<% if logged_in? %>
+<header>
+    <h1 class="hed_title hed"><%= link_to 'Instagram-Clone', '/pictures' %></h1> 
+</header>
+    
+<div id="main">
+    <div class="col-xs-12 main-cent">
+        <div class="col-md-3 topsbox">
+      
+        </div>
+        <div class="col-md-6 user_main">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-3">
+                <button class="new_btn"><%= link_to 'new' , '/pictures/new' %></button>
+                <button class="fav_btn"><%= link_to 'home' , user_path(current_user.id) %></button>
+                </div>
+                <div class="col-md-5"></div>
+
+            </div>
+            <div class="row user_confir">
+                <div class="col-md-3"></div>
+                <div class="col-md-2 user_img">
+                    <%= image_tag @user.image.url %>
+                </div>
+                <div class="col-md-7 user_cont">
+                    <h1><%= @user.name %>のページ</h1>
+    
+                    <p>メールアドレス: <%= @user.email %></p>
+                </div>
+            </div>
+            <div class="row user_pic_all">
+                
+                <table>    
+                    <tr>
+                        <% @user.favorites.each do |favorite| %>
+                        <td class="user_pic_img"><%= link_to image_tag(favorite.picture.image.url),picture_path(picture.id) %></td>
+                        <% end %>
+                        </tr>
+                    <br >
+                </table>
+                
+            </div>
+        </div>
+        
+        <div class="col-md-3 topsbox">
+      
+        </div>
+    </div>
+</div>
+
+<% else %>
+<header class="tops_hed">
+</header>
+
+<div id="main">
+  <div class="col-xs-12 main-cent tops">
+    <div class="col-md-2 topsbox">
+      
+    </div>
+    <div class="col-md-4 topsbox leftside">
+        <img src="../assets/tops_img.jpg">
+    </div>
+    <div class="col-md-4 topsbox right_side">
+        <h1>Instagram-Clone</h1>
+        <h3>Let's check out friends photos and videos.</h3>
+        <br >
+        <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+        <table>  
+          
+          <tr>
+            <td><%= f.label :email %></td>
+            <td><%= f.email_field :email %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :password %></td>
+            <td><%= f.password_field :password %></td>
+          </tr>
+            
+        </table>
+        <br >
+        <%= f.submit "Log in" %>
+        <% end %>
+        <br >
+        <br >
+        <p>アカウント作りますか？<%= link_to 'Sign Up', '/users/new' %></p>
+
+        
+    </div>
+    <div class="col-md-2 topsbox"></div>
+  </div>
+</div>
+<% end %>

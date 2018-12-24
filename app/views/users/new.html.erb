@@ -1,0 +1,64 @@
+<header class="tops_hed">
+  
+</header>
+<div id="main">
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>  
+  <div class="col-xs-12 main-cent tops">
+    <div class="col-md-2 topsbox">
+      
+    </div>
+    <div class="col-md-4 topsbox leftside">
+        <img src="../assets/tops_img.jpg">
+    </div>
+    <div class="col-md-4 topsbox right_side">
+        <h1>Instagram-Clone</h1>
+        <h3>Let's check out friends photos and videos.</h3>
+        <br >
+        <table>
+        <%= form_with(model: @user, local: true) do |f| %>  
+        <tr>
+          <td><%= f.label :name %></td>
+          <td><%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :email %></td>
+          <td><%= f.email_field :email %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password %></td>
+          <td><%= f.password_field :password %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password_confirmation %></td>
+          <td><%= f.password_field :password_confirmation %></td>
+        </tr>
+         <tr>
+          <td><%= f.label :image %></td>
+          <td><%= f.file_field :image %></td>
+        </tr>
+        </table>
+        <br >
+          <%= f.submit "Create my account" %>
+        <% end %>
+        <br >
+        <br >
+        <p>アカウントお持ちですか？<%= link_to 'Login', '/sessions/new' %></p>
+
+    </div>
+    <div class="col-md-2 topsbox"></div>
+  </div>
+</div>
+
+
+<footer class="tops_fot">
+  
+</footer>

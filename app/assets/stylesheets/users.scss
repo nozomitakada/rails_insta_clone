@@ -1,0 +1,78 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body{
+    background-color: #EEEEEE;
+}
+
+#main{
+    width: 100%;
+    background-color: #EEEEEE;
+}
+
+.topsbox{
+    float: left;
+    padding: auto;
+}
+
+.right_side{
+    text-align: center;
+    padding: auto;
+}
+
+header{
+    background-color: white;
+    width: 100%;
+    //height: 100px;
+    text-align: center;
+}
+.hed_title{
+    margin-top: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.user_pic_img img{
+    width: 200px;
+    height: 200px;
+
+}
+
+.user_pic_img{
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.user_pic_all tr{
+    float: left;
+}
+
+.new_btn{
+    float: center;
+}
+
+.tops{
+    background-color: white;
+}
+.tops_hed{
+    width: 100%;
+    height: 200px;
+    background-color: white;
+}
+.tops_fot{
+    width: 100%;
+    height: 200px;
+    background-color: white;
+}
+.user_img img{
+
+    width:100px;
+    height: 100px;
+}
+.user_confir{
+    height: 120px;
+    padding-top: 10px;
+    border-bottom: solid 1px gray;
+}
