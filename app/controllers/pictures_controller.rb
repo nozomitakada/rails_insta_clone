@@ -16,7 +16,6 @@ class PicturesController < ApplicationController
     if @picture.save
       redirect_to pictures_path
       PictureMailer.picture_mail(@picture).deliver
-      
     else
       render 'new'
     end
